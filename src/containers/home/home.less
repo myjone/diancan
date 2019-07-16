@@ -168,36 +168,49 @@
                 position: relative;
                 .stepWrap{
                     position: absolute;;
-                    width:100px;
                     height:15px;
                     right:0;
                     bottom: 4px;
-                    .reduce{
-                        width:15px;
+                    .scroll{
+                        width:80px;
                         height:15px;
-                        background:url('../../static/reduce.png') center center no-repeat;
-                        background-size:cover;
+                        width:0;
+                        overflow:hidden;
+                        transition:0.35s;
+                        &.active{
+                            width:80px;
+                        }
+                        .reduce{
+                            width:15px;
+                            height:15px;
+                            background:url('../../static/reduce.png') center center no-repeat;
+                            background-size:contain;
+                            float:left;
+                        }
+                        .stepinput{
+                            display:block;
+                            width:50px;
+                            height:13px;
+                            float:left;
+                            border:none;
+                            border-radius:15px;
+                            background:rgba(0,0,0,0.1);
+                            text-align:center;
+                            margin-left:7px;
+                        }
+                        
                         float:left;
                     }
+                   
                     .add{
                         width:15px;
                         height:15px;
                         background:url('../../static/add.png') center center no-repeat;
-                        background-size:cover;
+                        background-size:contain;
                         float:right;
                         
                     }
-                    .stepinput{
-                        display:block;
-                        width:60px;
-                        height:15px;
-                        float:left;
-                        border:none;
-                        border-radius:15px;
-                        margin-left:5px;
-                        background:rgba(0,0,0,0.1);
-                        text-align:center;
-                    }
+                   
                 }
                 .goodName{
                     width:100%;

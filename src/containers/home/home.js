@@ -10,17 +10,21 @@ class Home extends Component {
         this.state = {
             val: 3,
             val1: 2,
-          };
+            sign: false,
+        };
 
     }
-      onChange = (val) => {
+    onChange = (val) => {
         // console.log(val);
         this.setState({ val });
-      }
-      onChange1 = (val1) => {
+    }
+    onChange1 = (val1) => {
         // console.log(val);
         this.setState({ val1 });
-      }
+    }
+    handleColor =()=>{
+        this.setState({ sign: !this.state.sign });
+    }
 
     render() {
         return (
@@ -59,7 +63,7 @@ class Home extends Component {
                         <div className='goodItem'>
                             <div className='goodImage'>
                                 <div className='label'>
-                                <Badge text="券" style={{padding: '0 3px', backgroundColor: '#f19736', borderRadius: 2 }} />
+                                    <Badge text="券" style={{ padding: '0 3px', backgroundColor: '#f19736', borderRadius: 2 }} />
                                 </div>
                             </div>
                             <div className='goodContain'>
@@ -71,35 +75,41 @@ class Home extends Component {
                                 </div>
 
                                 <div className='stepWrap'>
-                                   <div className='reduce'></div>
-                                            <input  className='stepinput' />
-                                   <div className='add'></div>
+
+
+                                    <div className={['scroll',this.state.sign ? "active" : 'scroll'].join(' ')}>
+                                        <div className='reduce'></div>
+                                        <input className='stepinput' />
+                                    </div>
+                                    <div className='add'
+                                         onClick={this.handleColor} 
+                                    ></div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
 
-            <div className='footer'>
-                <div className='shopCard '>
-                    <div className='shopImage active'>
-                        <div className='badgeWrap'>
-                     <Badge text="99" hot />
+                <div className='footer'>
+                    <div className='shopCard '>
+                        <div className='shopImage active'>
+                            <div className='badgeWrap'>
+                                <Badge text="99" hot />
+                            </div>
+                        </div>
                     </div>
-                    </div>
-                </div>  
-                <div className='infoBar'>
-                     下单减13元，再买<span className='red'>12</span>元可减去<span className='red'>30</span>元
-                </div> 
+                    <div className='infoBar'>
+                        下单减13元，再买<span className='red'>12</span>元可减去<span className='red'>30</span>元
+                </div>
 
-                <div className="barInfo">
-                     <div className='infoText' hidden>未选购商品</div>
-                     <div className="price">￥18.5</div>
+                    <div className="barInfo">
+                        <div className='infoText' hidden>未选购商品</div>
+                        <div className="price">￥18.5</div>
+                    </div>
+                    <div className='btn active'>
+                        去结算
                 </div>
-                <div className='btn active'>
-                    去结算
                 </div>
-            </div>
             </Fragment>
         )
     }
