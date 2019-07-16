@@ -1,7 +1,5 @@
 const { override, fixBabelImports, addLessLoader } = require('customize-cra');
 const rewireLess = require('react-app-rewire-less');
-
-
 const addCustomize = () => config => {
     require('react-app-rewire-postcss')(config, {
         plugins: loader => [
@@ -44,7 +42,7 @@ module.exports = override(
     }),
     addLessLoader({
         javascriptEnabled: true,
-        //modifyVars: { '@primary-color': '#1DA57A' }, # 这里不注释掉，那你的无法修改主题色primary-color 这里很坑的 要注意！
+        //modifyVars: { '@primary-color': '#1DA57A' },
     }),
     addCustomize(),
 );
